@@ -25,11 +25,6 @@ jobs:
           command: 'zip -r sample-node-dependency-lib.zip .'
       - store_artifacts:
           path: sample-node-dependency-lib.zip
-  deploy:
-    machine:
-      enabled: true
-    working_directory: ~/temp
-    steps:
-       - aws-s3/copy:
+      - aws-s3/copy:
           from: sample-node-dependency-lib.zip
           to: 's3://sample-node-dependency-lib'
