@@ -25,6 +25,6 @@ jobs:
           command: 'zip -r sample-node-dependency-lib.zip .'
       - store_artifacts:
           path: sample-node-dependency-lib.zip
-      - aws-s3/copy:
-          from: sample-node-dependency-lib.zip
-          to: 's3://sample-node-dependency-lib'
+      - - run:
+          name: copy-artifact-to-s3
+          command: 'aws s3 sync sample-node-dependency-lib.zip s://sample-node-dependency-lib'
