@@ -1,7 +1,9 @@
 version: 2
+orbs:
+  aws-s3: circleci/aws-s3@1.0.0
 jobs:
   build:
-    working_directory: ~/mern-starter
+    working_directory: ~/temp
     docker:
       - image: circleci/node:8.10
     steps:
@@ -23,3 +25,11 @@ jobs:
           command: 'zip -r sample-node-dependency-lib.zip .'
       - store_artifacts:
           path: sample-node-dependency-lib.zip
+  deploy:
+    machine:
+      enabled: true
+    working_directory: ~/temp
+    steps:
+       - aws-s3/copy:
+          from: sample-node-dependency-lib.zip
+          to: 's3://sample-node-dependency-lib'
