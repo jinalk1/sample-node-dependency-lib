@@ -19,9 +19,6 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: test
-          command: npm test
-      - run:
           name: zip-package
           command: 'zip -r sample-node-dependency-lib.zip .'
       - store_artifacts:
