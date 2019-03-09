@@ -22,4 +22,4 @@ jobs:
           name: zip-package
           command: 'zip -r sample-node-dependency-lib.zip .'
       - store_artifacts:
-          path: test-results.xml
+          path: sample-node-dependency-lib.zip
