@@ -30,4 +30,4 @@ jobs:
           path: sample-node-dependency-lib.zip
       - run:
           name: copy-artifact-to-s3
-          command: 'aws s3 sync sample-node-dependency-lib.zip s3://sample-node-dependency-lib'
+          command: 'aws s3 cp sample-node-dependency-lib.zip s3://sample-node-dependency-lib'
