@@ -25,7 +25,7 @@ jobs:
             - ./node_modules
       - run:
           name: zip-package
-          command: 'zip -r sample-node-dependency-lib.zip .'
+          command: 'zip -r sample-node-dependency-lib-{{$CIRCLE_BUILD_NUM}}.zip .'
       - store_artifacts:
           path: sample-node-dependency-lib.zip
       - run:
