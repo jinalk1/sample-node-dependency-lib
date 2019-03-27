@@ -2,7 +2,7 @@
   "name": "sample-node-dependency-lib",
   "version": "1.0.0",
   "description": "Package dependency as layers for NodeJS",
-  "main": "src/index.js",
+  "main": "index.js",
   "repository": "https://github.com/jinalk1/sample-node-dependency-lib",
   "author": "jinal.kadia",
   "license": "MIT",

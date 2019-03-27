@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: update-npm
-          command: 'sudo npm install -g npm@5'
+          command: "sudo npm install -g npm@5"
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
@@ -25,9 +25,9 @@ jobs:
             - ./node_modules
       - run:
           name: zip-package
-          command: 'zip -r sample-node-dependency-lib-{{ $CIRCLE_BUILD_NUM }}.zip .'
+          command: 'zip -r sample-node-dependency-lib-"$CIRCLE_BUILD_NUM".zip nodejs'
       - store_artifacts:
-          path: 'sample-node-dependency-lib-{{ $CIRCLE_BUILD_NUM }}.zip'
+          path: 'sample-node-dependency-lib-"$CIRCLE_BUILD_NUM".zip'
       - run:
           name: copy-artifact-to-s3
-          command: 'aws s3 cp sample-node-dependency-lib.zip s3://sample-node-dependency-lib-{{ $CIRCLE_BUILD_NUM }}'
+          command: "aws s3 cp sample-node-dependency-lib.zip s3://sample-node-dependency-lib-"$CIRCLE_BUILD_NUM""
