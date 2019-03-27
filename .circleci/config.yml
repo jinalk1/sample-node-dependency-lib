@@ -25,9 +25,9 @@ jobs:
           command: echo $CIRCLE_BUILD_NUM
       - run:
           name: zip-package
-          command: 'zip -r sample-node-dependency-lib-"$CIRCLE_BUILD_NUM".zip nodejs'
+          command: zip -r sample-node-dependency-lib-$CIRCLE_BUILD_NUM.zip nodejs
       - store_artifacts:
-          path: 'sample-node-dependency-lib-"$CIRCLE_BUILD_NUM".zip'
+          path: sample-node-dependency-lib-$CIRCLE_BUILD_NUM.zip
       - run:
           name: copy-artifact-to-s3
-          command: 'aws s3 cp sample-node-dependency-lib-"$CIRCLE_BUILD_NUM".zip s3://sample-node-dependency-lib'
+          command: aws s3 cp sample-node-dependency-lib-$CIRCLE_BUILD_NUM.zip s3://sample-node-dependency-lib
