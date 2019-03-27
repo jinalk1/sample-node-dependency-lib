@@ -21,6 +21,9 @@ jobs:
           paths:
             - ./node_modules
       - run:
+          name: echo CIRCLE_BUILD_NUM
+          command: echo $CIRCLE_BUILD_NUM
+      - run:
           name: zip-package
           command: 'zip -r sample-node-dependency-lib-"$CIRCLE_BUILD_NUM".zip nodejs'
       - store_artifacts:
